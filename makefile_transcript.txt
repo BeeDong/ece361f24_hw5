@@ -1,0 +1,37 @@
+[2024-12-04 14:38.27]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ make
+gcc -Wall -std=c99 -c tempHumidtree.c -o tempHumidtree.o
+gcc -Wall -std=c99 -c iom361_r2.c -o iom361_r2.o
+gcc -Wall -std=c99 -c float_rndm.c -o float_rndm.o
+gcc -Wall -std=c99 -o test_tempHumidtree.exe test_tempHumidtree.o tempHumidtree.o iom361_r2.o float_rndm.o
+                                                                                                                                                            ✓
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[2024-12-04 14:39.24]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ ./test_tempHumidtree.exe
+HW5 Temperature/Humidity Binary tree - Brandon Duong (duon@pdx.edu)
+Current working directory: /drives/c/Users/15033/Documents/Desktop/361hw5
+
+Testing the Temp/Humidity BST...
+Inserting test data...
+Inserted: Sun Oct  1 01:00:00 2023 - Temp: 50.00°C, Humid: 62.50%
+Inserted: Mon Oct  2 01:00:00 2023 - Temp: 50.78°C, Humid: 63.28%
+Inserted: Tue Oct  3 01:00:00 2023 - Temp: 51.56°C, Humid: 64.06%
+Inserted: Wed Oct  4 01:00:00 2023 - Temp: 52.34°C, Humid: 64.84%
+Inserted: Thu Oct  5 01:00:00 2023 - Temp: 53.12°C, Humid: 65.62%
+
+Searching for specific timestamps...
+Found: Mon Oct  2 01:00:00 2023 - Temp: 50.78°C, Humid: 63.28%
+
+Inorder traversal of the BST:
+Sun Oct  1 01:00:00 2023 - Temp: 50.00°C, Humid: 62.50%
+Mon Oct  2 01:00:00 2023 - Temp: 50.78°C, Humid: 63.28%
+Tue Oct  3 01:00:00 2023 - Temp: 51.56°C, Humid: 64.06%
+Wed Oct  4 01:00:00 2023 - Temp: 52.34°C, Humid: 64.84%
+Thu Oct  5 01:00:00 2023 - Temp: 53.12°C, Humid: 65.62%
+
+Freeing the BST...
+                                                                                                                                                            ✓
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[2024-12-04 14:39.30]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ whoami
+BrandDuong
