@@ -102,5 +102,4 @@ int main() {
     printf("\nFreeing the BST...\n");
     freeTree(tree);
 
-    return 0;
 }

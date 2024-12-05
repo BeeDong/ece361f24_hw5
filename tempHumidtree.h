@@ -115,6 +115,26 @@ void freeNodes(BSTNodePtr_t node);
  *
  */ 
 void freeTree(TempHumidTreePtr_t tree);
+
+/*
+ * printReadableTimestamp() - takes variable time_t 
+ * 
+ * @param	timestamp	
+ *
+ */ 
+void printReadableTimestamp(time_t timestamp);
+
+/*
+ * populateBST() - fills binary tree with random temperature and humidity readings
+ * 
+ * @param	tree	pointer to generated binary tree
+ * @param	start_month		initial month to populate with
+ * @param	start_day	initial day to populate with
+ * @param	num_days	number of days to populate
+ *
+ */ 
+void populateBST(TempHumidTreePtr_t tree, int start_month, int start_day, int num_days);
+
  
 #endif
 

@@ -1,0 +1,26 @@
+[2024-12-05 14:34.14]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ gcc -Wall -std=c99 -o test_populateBST.exe test_populateBST.c tempHumidtree.c iom361_r2.c float_rndm.c
+                                                                                                                                                            ✓
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[2024-12-05 14:34.35]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ ./test_populateBST.exe
+Testing populateBST function...
+Initializing population...
+Generated timestamp: 1696147200 -> Sun Oct  1 01:00:00 2023
+Generated timestamp: 1696233600 -> Mon Oct  2 01:00:00 2023
+Generated timestamp: 1696320000 -> Tue Oct  3 01:00:00 2023
+Generated timestamp: 1696406400 -> Wed Oct  4 01:00:00 2023
+Generated timestamp: 1696492800 -> Thu Oct  5 01:00:00 2023
+Generated timestamp: 1696579200 -> Fri Oct  6 01:00:00 2023
+Generated timestamp: 1696665600 -> Sat Oct  7 01:00:00 2023
+Generated timestamp: 1696752000 -> Sun Oct  8 01:00:00 2023
+Generated timestamp: 1696838400 -> Mon Oct  9 01:00:00 2023
+Generated timestamp: 1696924800 -> Tue Oct 10 01:00:00 2023
+Shuffling complete. Populating BST...
+Setting sensor values for timestamp: Mon Oct  9 01:00:00 2023
+Segmentation fault
+                                                                                                                                                            ✗
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[2024-12-05 14:34.37]  ~/MyDocuments/desktop/361hw5
+[BrandDuong.DESKTOP-G1T3179] ⮞ whoami
+BrandDuong

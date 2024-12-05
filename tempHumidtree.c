@@ -11,6 +11,7 @@
  *
  */
 #include "tempHumidtree.h"
+#include "iom361_r2.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // Include for strlen()
@@ -132,4 +133,84 @@ void freeTree(TempHumidTreePtr_t tree) {
 
     freeNodes(tree->root);
     free(tree);
+}
+
+// Helper function to print a readable timestamp
+void printReadableTimestamp(time_t timestamp) {
+    char buffer[26];
+    ctime_r(&timestamp, buffer);
+    buffer[24] = '\0'; // Remove newline
+    printf("%s", buffer);
+}
+
+// Populate the BST with random temperature and humidity readings
+void populateBST(TempHumidTreePtr_t tree, int start_month, int start_day, int num_days) {
+    if (!tree) {
+        printf("Error: Tree is NULL.\n");
+        return;
+    }
+
+    printf("Initializing population...\n");
+
+    struct tm start_date = {0};
+    start_date.tm_year = 2023 - 1900;
+    start_date.tm_mon = start_month - 1;
+    start_date.tm_mday = start_day;
+
+    // Array to store timestamps
+    time_t *timestamps = malloc(num_days * sizeof(time_t));
+    if (!timestamps) {
+        perror("Failed to allocate memory for timestamps.");
+        return;
+    }
+
+    // Generate timestamps
+    for (int i = 0; i < num_days; i++) {
+        timestamps[i] = mktime(&start_date);
+        if (timestamps[i] == -1) {
+            printf("Error generating timestamp for day %d\n", i + 1);
+        } else {
+            printf("Generated timestamp: %ld -> ", timestamps[i]);
+            printReadableTimestamp(timestamps[i]);
+            printf("\n");
+        }
+        start_date.tm_mday++;
+    }
+
+    // Shuffle timestamps
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < num_days; i++) {
+        int j = rand() % num_days;
+        time_t temp = timestamps[i];
+        timestamps[i] = timestamps[j];
+        timestamps[j] = temp;
+    }
+
+    printf("Shuffling complete. Populating BST...\n");
+
+    // Populate BST with random temperature and humidity data
+    for (int i = 0; i < num_days; i++) {
+        printf("Setting sensor values for timestamp: ");
+        printReadableTimestamp(timestamps[i]);
+        printf("\n");
+
+        _iom361_setSensor1_rndm(0, 50, 50, 100); // Generate random sensor data
+
+        printf("Reading temperature and humidity...\n");
+        uint32_t temp = iom361_readReg(NULL, TEMP_REG, NULL);
+        uint32_t humid = iom361_readReg(NULL, HUMID_REG, NULL);
+
+        printf("Temp = %u, Humid = %u\n", temp, humid);
+
+        printf("Inserting into BST...\n");
+        DataItem_t data = {timestamps[i], temp, humid};
+        if (!insert(tree, data)) {
+            printf("Failed to insert timestamp: ");
+            printReadableTimestamp(timestamps[i]);
+            printf("\n");
+        }
+    }
+
+    free(timestamps);
+    printf("BST populated successfully.\n");
 }
